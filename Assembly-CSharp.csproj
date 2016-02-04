@@ -45,13 +45,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Mahou\Scripts\BossHP.cs" />
      <Compile Include="Assets\Mahou\Scripts\DarkScripts\FollowTarget.cs" />
      <Compile Include="Assets\Mahou\Scripts\DarkScripts\FreeCameraLook.cs" />
      <Compile Include="Assets\Mahou\Scripts\DarkScripts\Pivot.cs" />
+     <Compile Include="Assets\Mahou\Scripts\DisableMovement.cs" />
+     <Compile Include="Assets\Mahou\Scripts\EnableMovement.cs" />
+     <Compile Include="Assets\Mahou\Scripts\GestaltController.cs" />
      <Compile Include="Assets\Mahou\Scripts\MahouCameraController.cs" />
      <Compile Include="Assets\Mahou\Scripts\MouseOrbitImproved.cs" />
      <Compile Include="Assets\Mahou\Scripts\ShoujoController.cs" />
      <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
+     <Compile Include="Assets\Resources\Scripts\CameraBehavior.cs" />
+     <Compile Include="Assets\Resources\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Resources\Scripts\button.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\Bullet.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\Danmaku.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\Danmaku_movement.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\FireData.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\Patterns.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\elegance_collider_script.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku\test_Creature.cs" />
+     <Compile Include="Assets\Resources\Scripts\danmaku_fly.cs" />
+     <Compile Include="Assets\Resources\Scripts\get_rotation.cs" />
+     <Compile Include="Assets\Resources\Scripts\rotator.cs" />
+     <Compile Include="Assets\Resources\Scripts\shoot.cs" />
+     <Compile Include="Assets\Resources\Scripts\shoot_2.cs" />
+     <Compile Include="Assets\Resources\Scripts\test_event_script.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
      <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
      <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
@@ -69,6 +89,7 @@
      <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
+     <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />

@@ -1,9 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Mahou\Scripts\MahouCameraController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\danmaku\Bullet.cs">
     <Files>
-      <File FileName="Assets\Mahou\Scripts\ShoujoController.cs" Line="75" Column="31" />
-      <File FileName="Assets\Mahou\Scripts\MahouCameraController.cs" Line="61" Column="60" />
+      <File FileName="Assets\Mahou\Scripts\ShoujoController.cs" Line="21" Column="25" />
+      <File FileName="Assets\Mahou\Scripts\BossHP.cs" Line="1" Column="1" />
+      <File FileName="Assets\Mahou\Scripts\MahouCameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Mahou\Scripts\DisableMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Mahou\Scripts\EnableMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\danmaku\Patterns.cs" Line="23" Column="82" />
+      <File FileName="Assets\Resources\Scripts\danmaku\test_Creature.cs" Line="18" Column="8" />
+      <File FileName="Assets\Resources\Scripts\danmaku\FireData.cs" Line="89" Column="27" />
+      <File FileName="Assets\Resources\Scripts\danmaku\Bullet.cs" Line="13" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

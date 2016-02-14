@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\danmaku\Danmaku_movement.cs">
+    <Files>
+      <File FileName="Assets\Resources\Scripts\danmaku\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\danmaku\Danmaku.cs" Line="28" Column="2" />
+      <File FileName="Assets\Resources\Scripts\danmaku\Patterns.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\danmaku\FireData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\danmaku\Danmaku_movement.cs" Line="66" Column="61" />
+      <File FileName="Assets\Resources\Scripts\danmaku\test_Creature.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="D:\git\Mahou\Assets\Resources\Scripts\danmaku\FireData.cs" line="52" column="38" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

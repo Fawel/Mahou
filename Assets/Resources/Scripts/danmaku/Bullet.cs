@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System;
 public class Bullet : Danmaku {
     Danmaku_movement dan_mov;
-	public float testing_par;
     void Start () {
         damage = 1;
 		if (Coordx.Length != 0)

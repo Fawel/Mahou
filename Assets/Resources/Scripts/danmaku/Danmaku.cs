@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System;
 public abstract class Danmaku : MonoBehaviour {
 	public movement_type type=movement_type.simple;
-    PlayerMovement pl;
     protected int damage;
     bool elegance_triggered = false;
     public float Speed;
@@ -16,44 +15,52 @@ public abstract class Danmaku : MonoBehaviour {
     public GameObject Bullet_prefab;
 	// Лист точек по которым двигается пуля.
 	protected List<Point> PointArray;
-
+	[HideInInspector]
 	public float[] Coordx, Coordz;
-
+	[HideInInspector]
 	public int arraycounter=0;
+	Collider col;
+//
+	void Awake()
+	{
+		col = gameObject.GetComponent<SphereCollider>();
+	}
 
 	/// <summary>
-	/// Метод для обработки сталкнивания пуль с коллайдером Elegance.
+	/// Метод для обработки сталкнивания пуль с коллайдером.
 	/// </summary>
 	/// <param name="_collider">Collider.</param>
  	public	virtual void  OnTriggerEnter(Collider _collider)
-    {
-        if (_collider.gameObject.name == "Elegance_collider")
-        {
-            pl = _collider.transform.parent.GetComponent<PlayerMovement>();
-            if (elegance_triggered == false)
-            {
-                pl.elegance_score++;
-                elegance_triggered = true;
-            }
-        }
-        else if (_collider.gameObject.name == "Collider")
-        {
-            pl = _collider.transform.parent.GetComponent<PlayerMovement>();
-            pl.health -= damage;
-            pl.elegance_score--;
-            this.gameObject.SetActive(false);
-        }
-    }
-	public virtual void OnTriggerStay(Collider _collider)
-    {
-        if (_collider.gameObject.name == "Collider")
-        {
-            pl = _collider.transform.parent.GetComponent<PlayerMovement>();
-            pl.health -= damage;
-            pl.elegance_score--;
-            this.gameObject.SetActive(false);
-        }
-    }
+	{
+			if (_collider.gameObject.tag != "Enemy" && _collider.gameObject.tag != "Danmaku") {
+			this.gameObject.SetActive (false); 
+			col.isTrigger = false;
+			}
+
+//      else if (_collider.gameObject.name == "Elegance_collider")
+//        {
+//            pl = _collider.transform.parent.GetComponent<PlayerMovement>();
+//            if (elegance_triggered == false)
+//            {
+//                pl.elegance_score++;
+//                elegance_triggered = true;
+//            }
+//        }
+		else if (_collider.gameObject.tag == "Unitychan") {
+				this.gameObject.SetActive (false);
+				col.isTrigger = false;
+			}
+	}
+//	public virtual void OnTriggerStay(Collider _collider)
+//    {
+//        if (_collider.gameObject.name == "Collider")
+//        {
+//            pl = _collider.transform.parent.GetComponent<PlayerMovement>();
+//            pl.health -= damage;
+//            pl.elegance_score--;
+//            this.gameObject.SetActive(false);
+//        }
+//    }
 
 	/// <summary>
 	/// Присваивает значение поворота пули и переводит в градусы. 

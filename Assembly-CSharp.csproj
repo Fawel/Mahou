@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{99834B74-A6A0-FF74-EBAB-F358066DAA9B}</ProjectGuid>
+    <ProjectGuid>{7563DA49-3F6B-1FD4-8117-BFF370AA8140}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -56,9 +56,6 @@
      <Compile Include="Assets\Mahou\Scripts\MouseOrbitImproved.cs" />
      <Compile Include="Assets\Mahou\Scripts\ShoujoController.cs" />
      <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
-     <Compile Include="Assets\Resources\Scripts\CameraBehavior.cs" />
-     <Compile Include="Assets\Resources\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Resources\Scripts\button.cs" />
      <Compile Include="Assets\Resources\Scripts\danmaku\Bullet.cs" />
      <Compile Include="Assets\Resources\Scripts\danmaku\Danmaku.cs" />
      <Compile Include="Assets\Resources\Scripts\danmaku\Danmaku_movement.cs" />
@@ -66,12 +63,6 @@
      <Compile Include="Assets\Resources\Scripts\danmaku\Patterns.cs" />
      <Compile Include="Assets\Resources\Scripts\danmaku\elegance_collider_script.cs" />
      <Compile Include="Assets\Resources\Scripts\danmaku\test_Creature.cs" />
-     <Compile Include="Assets\Resources\Scripts\danmaku_fly.cs" />
-     <Compile Include="Assets\Resources\Scripts\get_rotation.cs" />
-     <Compile Include="Assets\Resources\Scripts\rotator.cs" />
-     <Compile Include="Assets\Resources\Scripts\shoot.cs" />
-     <Compile Include="Assets\Resources\Scripts\shoot_2.cs" />
-     <Compile Include="Assets\Resources\Scripts\test_event_script.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
      <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
      <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
@@ -94,15 +85,15 @@
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{126CFC66-0F9E-BECE-0B0E-4154BF114E37}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{F12C7965-42A3-7C96-63BA-8EF5856F69DE}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

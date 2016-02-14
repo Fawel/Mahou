@@ -8,7 +8,6 @@ public enum danmaku_types
 	Bullet
 }
 public class FireData : MonoBehaviour {
-    public GameObject shootung_object;
     /// <summary>
     /// Простейший метод создания пули
     /// </summary>
@@ -23,20 +22,43 @@ public class FireData : MonoBehaviour {
 	/// <param name="_bullet_params">Параметры пули.</param>
     /// <returns></returns>
 
-	public IEnumerator move(int _sum, float _reload_time,
-		float _rotation, float _init_rotation_speed, danmaku_types _type, float[] _danmaku_move_params,float [] _bullet_params, movement_type movement)
+	//Экземпляры скриптов пуль
+	private Bullet bullet_type;
+	public Transform emiiter_transform;
+
+	void Awake()
 	{
+		emiiter_transform = transform;
+		GameObject bullet_obj = Resources.Load ("Prefab/Bullet")as GameObject;
+		bullet_type = bullet_obj.GetComponent<Bullet> ();
+	}
+
+	public IEnumerator move(int _sum, float _reload_time,
+		float _rotation, float _init_rotation_speed, float _inwavessum, float _wave_rot_spawn, danmaku_types _type, float[] _danmaku_move_params,float [] _bullet_params, movement_type movement)
+	{
+		_inwavessum =(_inwavessum <= 0) ? 1 : _inwavessum;
 		// При инициализации пули, её экземпляр класса принимает null.
 		// Поэтому создаем два экземпляра - первый хранит тип пули, второй используется для инициализации пули
 		// и копирует тип из первого экземпляра
 		Danmaku create_new = set_danmaku_type (_type); 
 		Danmaku clone_bullet;
+
+
+		// wave_1 - число волн - параметр sum
+		// wave_2 - кол-во пуль в одной волне - новый параметр
+		// wave_3 - угловая разница между пулями в волне
+		// на будущее - параметры положения спауна пуль
+		// итого 2 параметра для волны 
 		for (float timer = 0; timer < _sum; timer += 1) 
         {
-			clone_bullet = create_new;
-			set_move_params (clone_bullet,_danmaku_move_params, movement);
-			set_bul_params (_bullet_params, _type);
-			clone_bullet = Instantiate(clone_bullet.transform, transform.position, Quaternion.Euler(0,transform.rotation.eulerAngles.y+_rotation, 0)) as Danmaku;
+			float cur_wave_rot = 0;
+			for (int i = 0; i < _inwavessum; i++) {
+				clone_bullet = create_new;
+				set_move_params (clone_bullet, _danmaku_move_params, movement);
+				set_bul_params (_bullet_params, _type);
+				clone_bullet = Instantiate (clone_bullet.transform, emiiter_transform.position, Quaternion.Euler (0, emiiter_transform.rotation.eulerAngles.y + _rotation+cur_wave_rot, 0)) as Danmaku;
+				cur_wave_rot += _wave_rot_spawn;
+			}
             _rotation += _init_rotation_speed;
             if (_reload_time > 0)
             {
@@ -52,18 +74,22 @@ public class FireData : MonoBehaviour {
 	/// <param name="reload_time">Задержка между выстрелами</param>
 	/// <param name="_rotation">Угол на который повернута пуля при инициализации. Используется при смещении массива пуль.</param>
 	/// <param name="_PointArray">Массив точек, по которым будет двигаться пуля.</param>
-	public IEnumerator point_move(float _sum, float _reload_time, float _rotation, float _init_rotation_speed, danmaku_types _type, List<Point> _PointArray, float [] _bullet_params)
+	public IEnumerator point_move(float _sum, float _reload_time, float _rotation, float _init_rotation_speed, float _inwavessum, float _wave_rot_spawn, danmaku_types _type, List<Point> _PointArray, float [] _bullet_params)
 	{
+		_inwavessum =(_inwavessum <= 0) ? 1 : _inwavessum;
 		Danmaku create_new = set_danmaku_type (_type); 
 		Danmaku clone_bullet;
-		for (float timer = 0; timer < _sum; timer += 1) 
-		{
+		for (float timer = 0; timer < _sum; timer += 1) {
+			float cur_wave_rot = 0;
+			for (int i = 0; i < _inwavessum; i++) 
+			{
 			clone_bullet = create_new;
 			clone_bullet.type = movement_type.points;
-			set_move_params (clone_bullet, _bullet_params, rotate_axis(_PointArray));
+			set_move_params (clone_bullet, _bullet_params, rotate_axis (_PointArray));
 			set_bul_params (_bullet_params, _type);
-
-			clone_bullet = Instantiate(clone_bullet.transform, transform.position, Quaternion.Euler(0, shootung_object.transform.rotation.eulerAngles.y+_rotation, 0)) as Danmaku;
+				clone_bullet = Instantiate (clone_bullet.transform, emiiter_transform.position, Quaternion.Euler (0, emiiter_transform.rotation.eulerAngles.y + _rotation+cur_wave_rot, 0)) as Danmaku;
+				cur_wave_rot += _wave_rot_spawn;
+		}
 			_rotation += _init_rotation_speed;
 			if (_reload_time > 0)
 			{
@@ -99,7 +125,7 @@ public class FireData : MonoBehaviour {
 			_bullet._max_rotation = _params [4];
 			break;
 		default:
-			print ("Неправильно задан тип движения");
+			//print ("Неправильно задан тип движения");
 			break;
 		}
 	}
@@ -130,11 +156,12 @@ public class FireData : MonoBehaviour {
 		{
 		//Для оптимизации стоит хранить такие вещи в object pool, а не грузить каждый раз.
 		case danmaku_types.Bullet:
-			GameObject bullet_obj = Resources.Load ("Prefab/Bullet")as GameObject;
-			_bullet = bullet_obj.GetComponent<Bullet> ();
+	//		GameObject bullet_obj = Resources.Load ("Prefab/Bullet")as GameObject;
+	//		_bullet = bullet_obj.GetComponent<Bullet> ();
+			_bullet=bullet_type;
 			break;
 		default:
-			print ("Неправильно задан тип пули");
+		//	print ("Неправильно задан тип пули");
 			break;
 		}
 		return _bullet;
@@ -149,7 +176,7 @@ public class FireData : MonoBehaviour {
 		switch (_type) 
 		{
 		case danmaku_types.Bullet:
-			print ("Set bullet params");
+			//print ("Set bullet params");
 			break;
 		default:
 			break;
@@ -166,15 +193,15 @@ public class FireData : MonoBehaviour {
 	{
 		List<Point> new_list = new List<Point> (_PointList.Count);
 		//Получаем координаты точек. В юнити градусы увеличиваются при движении по часовой стрелке.
-		float rotation = (360-shootung_object.transform.rotation.eulerAngles.y) * Mathf.Deg2Rad, rotation_x = Mathf.Deg2Rad* (360 - shootung_object.transform.rotation.eulerAngles.y+90);
+		float rotation = (360-emiiter_transform.rotation.eulerAngles.y) * Mathf.Deg2Rad, rotation_x = Mathf.Deg2Rad* (360 - emiiter_transform.rotation.eulerAngles.y+90);
 		Point get_axis_z = new Point((float)Math.Cos(rotation),(float)Math.Sin(rotation), transform.position.y), 
 		get_axis_x = new Point((float)Math.Cos(rotation_x), (float)Math.Sin(rotation_x), transform.position.y);
 		// Смещаем точки с учетом поворота осей и положения стрелка.
 		foreach (Point points in _PointList) 
 		{
 			
-			new_list.Add (new Point ((points.get_x * get_axis_z.get_x + points.get_z * get_axis_x.get_x)+transform.position.x, 
-				(points.get_x * get_axis_z.get_z + points.get_z * get_axis_x.get_z)+transform.position.z,transform.position.y));
+			new_list.Add (new Point ((points.get_x * get_axis_z.get_x + points.get_z * get_axis_x.get_x)+emiiter_transform.position.x, 
+				(points.get_x * get_axis_z.get_z + points.get_z * get_axis_x.get_z)+emiiter_transform.position.z,emiiter_transform.position.y));
 
 		}
 		return new_list;

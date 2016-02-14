@@ -15,8 +15,9 @@ public class test_Creature : MonoBehaviour {
 		
         if (Input.GetKeyDown(KeyCode.I))
         {
-            StartCoroutine(pattern.pattern_1());
+            //StartCoroutine(pattern.pattern_1());
 			//StartCoroutine(pattern.pattern_2());
+			StartCoroutine(pattern.Ethan_round_pattern());
         }
 	}
 }
